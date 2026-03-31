@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClawsterClaw — Claude Knowledge Portal</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #F7F5F0;
+      --bg2:       #EEEAE0;
+      --surface:   #FFFFFF;
+      --border:    #DDD9CE;
+      --text:      #1C1A16;
+      --muted:     #6B6760;
+      --accent:    #C83010;
+      --accent2:   #E04A20;
+      --accent-bg: #FBF0ED;
+      --radius:    12px;
+      --shadow:    0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,245,240,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+    }
+
+    .nav-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 400;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: var(--bg2);
+    }
+
+    .nav-github {
+      font-size: 12px !important;
+      color: var(--muted) !important;
+      border: 1px solid var(--border) !important;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 80px 40px 64px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: drop-shadow(0 4px 16px rgba(200,48,16,0.2));
+    }
+
+    .hero-text {}
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 440px;
+      line-height: 1.7;
+    }
+
+    /* STATS ROW */
+    .stats {
+      max-width: 860px;
+      margin: 0 auto 64px;
+      padding: 0 40px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 100px;
+    }
+
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -1px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 500;
+    }
+
+    /* DIVIDER */
+    .section-divider {
+      max-width: 860px;
+      margin: 0 auto 32px;
+      padding: 0 40px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* SECTIONS GRID */
+    .sections-grid {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 0.18s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transition: transform 0.2s;
+      transform-origin: left;
+    }
+
+    .section-card:hover {
+      border-color: #C9C5BA;
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+
+    .section-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card-count {
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--bg2);
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 300;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 11px;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-family: 'DM Sans', monospace;
+    }
+
+    .card-arrow {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    /* WIDE CARD */
+    .section-card.wide {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .section-card.wide .card-body {
+      flex: 1;
+    }
+
+    /* ACTIVITY */
+    .activity {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    .activity-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .activity-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .activity-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .activity-link {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .activity-link:hover { text-decoration: underline; }
+
+    .commit-list { padding: 0; }
+
+    .commit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+    }
+
+    .commit-item:last-child { border-bottom: none; }
+    .commit-item:hover { background: var(--bg); }
+
+    .commit-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .commit-msg {
+      font-size: 13.5px;
+      color: var(--text);
+      font-weight: 400;
+      flex: 1;
+    }
+
+    .commit-date {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .commit-loading {
+      padding: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .footer-left {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .footer-right a {
+      font-size: 12px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .footer-right a:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .hero { flex-direction: column; gap: 24px; padding: 48px 24px 40px; }
+      .hero-logo { width: 80px; height: 80px; }
+      .hero-title { font-size: 30px; }
+      .sections-grid { grid-template-columns: 1fr; padding: 0 24px 48px; }
+      .section-card.wide { flex-direction: column; }
+      nav { padding: 0 24px; }
+      .stats { padding: 0 24px; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo.png" alt="ClawsterClaw" class="nav-logo">
+      <span class="nav-name">ClawsterClaw</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="capabilities.html">Capabilities</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="https://github.com/ClawsterClaw/claude" target="_blank" class="nav-github">GitHub ↗</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <img src="assets/logo.png" alt="ClawsterClaw logo" class="hero-logo">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Knowledge Portal</p>
+      <h1 class="hero-title">How I think, build<br>and <em>compound</em> with Claude</h1>
+      <p class="hero-sub">Skills, frameworks, projects and decisions — a living knowledge base that grows with every session, every build, every insight.</p>
+    </div>
+  </section>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num" id="stat-capabilities">5</span>
+      <span class="stat-label">Capabilities</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="stat-projects">1</span>
+      <span class="stat-label">Projects</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="stat-skills">0</span>
+      <span class="stat-label">Skills</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" id="stat-templates">0</span>
+      <span class="stat-label">Templates</span>
+    </div>
+  </div>
+
+  <div class="section-divider">
+    <p class="section-label">Sections</p>
+  </div>
+
+  <div class="sections-grid">
+
+    <a href="capabilities.html" class="section-card">
+      <div class="card-header">
+        <span class="card-title">Capabilities</span>
+        <span class="card-count">5 phases</span>
+      </div>
+      <p class="card-desc">Standalone phase-based workflows — Research, Plan, Execute, Review, Compound. Use any phase independently on any topic or task.</p>
+      <div class="card-tags">
+        <span class="tag">research</span>
+        <span class="tag">plan</span>
+        <span class="tag">execute</span>
+        <span class="tag">review</span>
+        <span class="tag">compound</span>
+      </div>
+      <p class="card-arrow">View capabilities →</p>
+    </a>
+
+    <a href="projects.html" class="section-card">
+      <div class="card-header">
+        <span class="card-title">Projects</span>
+        <span class="card-count">1 active</span>
+      </div>
+      <p class="card-desc">Active projects with their own context, phases and decisions. Each project is a self-contained workspace.</p>
+      <div class="card-tags">
+        <span class="tag">claude-learning</span>
+        <span class="tag">active</span>
+      </div>
+      <p class="card-arrow">View projects →</p>
+    </a>
+
+    <a href="resources/skills.html" class="section-card">
+      <div class="card-header">
+        <span class="card-title">Skills Library</span>
+        <span class="card-count">0 skills</span>
+      </div>
+      <p class="card-desc">Custom skills built for Claude Code. Each skill encodes a workflow or standard so Claude applies it automatically.</p>
+      <div class="card-tags">
+        <span class="tag">claude-code</span>
+        <span class="tag">plugins</span>
+      </div>
+      <p class="card-arrow">View skills →</p>
+    </a>
+
+    <a href="resources/templates.html" class="section-card">
+      <div class="card-header">
+        <span class="card-title">Templates</span>
+        <span class="card-count">0 templates</span>
+      </div>
+      <p class="card-desc">Reusable starting points — research briefs, business frameworks, trade analysis structures, CLAUDE.md configs.</p>
+      <div class="card-tags">
+        <span class="tag">research</span>
+        <span class="tag">trading</span>
+        <span class="tag">CLAUDE.md</span>
+      </div>
+      <p class="card-arrow">View templates →</p>
+    </a>
+
+    <a href="resources/decisions.html" class="section-card">
+      <div class="card-header">
+        <span class="card-title">Decisions Log</span>
+        <span class="card-count">0 decisions</span>
+      </div>
+      <p class="card-desc">A record of significant decisions and the reasoning behind them. Invaluable context six months later.</p>
+      <div class="card-tags">
+        <span class="tag">ADR</span>
+        <span class="tag">rationale</span>
+        <span class="tag">history</span>
+      </div>
+      <p class="card-arrow">View decisions →</p>
+    </a>
+
+    <a href="resources/changelog.html" class="section-card">
+      <div class="card-header">
+        <span class="card-title">Changelog</span>
+        <span class="card-count">auto-updated</span>
+      </div>
+      <p class="card-desc">Every change to this portal, auto-generated from git history on every push. Never written manually.</p>
+      <div class="card-tags">
+        <span class="tag">git-log</span>
+        <span class="tag">auto-generated</span>
+      </div>
+      <p class="card-arrow">View changelog →</p>
+    </a>
+
+  </div>
+
+  <div class="section-divider">
+    <p class="section-label">Recent activity</p>
+  </div>
+
+  <div class="activity">
+    <div class="activity-box">
+      <div class="activity-header">
+        <span class="activity-title">Latest commits</span>
+        <a href="https://github.com/ClawsterClaw/claude/commits/main" target="_blank" class="activity-link">View all ↗</a>
+      </div>
+      <div class="commit-list" id="commit-list">
+        <div class="commit-loading">Loading recent activity...</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-left">ClawsterClaw · Claude Knowledge Portal · Auto-updated on every push</span>
+    <span class="footer-right"><a href="https://github.com/ClawsterClaw/claude" target="_blank">GitHub ↗</a></span>
+  </footer>
+
+  <script>
+    async function loadCommits() {
+      try {
+        const res = await fetch('https://api.github.com/repos/ClawsterClaw/claude/commits?per_page=6');
+        if (!res.ok) throw new Error('Failed');
+        const commits = await res.json();
+        const list = document.getElementById('commit-list');
+        list.innerHTML = commits.map(c => {
+          const date = new Date(c.commit.author.date);
+          const ago = timeAgo(date);
+          const msg = c.commit.message.split('\n')[0];
+          return `<div class="commit-item">
+            <div class="commit-dot"></div>
+            <span class="commit-msg">${msg}</span>
+            <span class="commit-date">${ago}</span>
+          </div>`;
+        }).join('');
+      } catch(e) {
+        document.getElementById('commit-list').innerHTML =
+          '<div class="commit-loading">No commits yet — start pushing to see activity here.</div>';
+      }
+    }
+
+    function timeAgo(date) {
+      const diff = Math.floor((Date.now() - date) / 1000);
+      if (diff < 60) return 'just now';
+      if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+      if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
+      return Math.floor(diff/86400) + 'd ago';
+    }
+
+    loadCommits();
+  </script>
+
+</body>
+</html>

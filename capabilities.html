@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capabilities — ClawsterClaw</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F7F5F0; --bg2: #EEEAE0; --surface: #FFFFFF;
+      --border: #DDD9CE; --text: #1C1A16; --muted: #6B6760;
+      --accent: #C83010; --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo { width: 36px; height: 36px; object-fit: contain; }
+    .nav-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13.5px; padding: 6px 12px; border-radius: 8px; transition: all 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg2); }
+    .nav-github { font-size: 12px !important; border: 1px solid var(--border) !important; }
+    .page-header { max-width: 860px; margin: 0 auto; padding: 56px 40px 40px; }
+    .back-link { font-size: 12px; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 20px; }
+    .back-link:hover { text-decoration: underline; }
+    .page-title { font-family: 'Syne', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+    .page-sub { font-size: 14px; color: var(--muted); font-weight: 300; max-width: 520px; }
+    .content { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
+    .phase-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; }
+    .phase-header { padding: 24px 28px; display: flex; align-items: flex-start; gap: 20px; }
+    .phase-num { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--accent); background: #FBF0ED; border: 1px solid #F0C4BA; padding: 4px 10px; border-radius: 20px; white-space: nowrap; margin-top: 2px; }
+    .phase-body { flex: 1; }
+    .phase-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .phase-desc { font-size: 13.5px; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 14px; }
+    .phase-domains { display: flex; flex-wrap: wrap; gap: 6px; }
+    .domain-tag { font-size: 11.5px; color: var(--muted); background: var(--bg); border: 1px solid var(--border); padding: 4px 10px; border-radius: 20px; }
+    .phase-note { padding: 14px 28px; background: var(--bg); border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); font-style: italic; }
+    footer { border-top: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; }
+    .footer-left { font-size: 12px; color: var(--muted); }
+    .footer-right a { font-size: 12px; color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo.png" alt="ClawsterClaw" class="nav-logo">
+      <span class="nav-name">ClawsterClaw</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="capabilities.html" class="active">Capabilities</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="https://github.com/ClawsterClaw/claude" target="_blank" class="nav-github">GitHub ↗</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <a href="index.html" class="back-link">← Back to portal</a>
+    <h1 class="page-title">Capabilities</h1>
+    <p class="page-sub">Five standalone phases. Use any one independently — no forced sequencing. Each applies across all domains.</p>
+  </div>
+
+  <div class="content">
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <span class="phase-num">① RESEARCH</span>
+        <div class="phase-body">
+          <h2 class="phase-title">Research</h2>
+          <p class="phase-desc">Deep exploration of any topic. Structure findings into context, key signals, implications and open questions. Works across all domains — markets, AI, science, disruptive innovation, human evolution, geopolitics and beyond.</p>
+          <div class="phase-domains">
+            <span class="domain-tag">stocks</span>
+            <span class="domain-tag">AI</span>
+            <span class="domain-tag">crypto</span>
+            <span class="domain-tag">science</span>
+            <span class="domain-tag">disruptive innovation</span>
+            <span class="domain-tag">human evolution with AI</span>
+            <span class="domain-tag">futures</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-note">Standalone — start here without committing to any next step.</div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <span class="phase-num">② PLAN</span>
+        <div class="phase-body">
+          <h2 class="phase-title">Plan</h2>
+          <p class="phase-desc">Turn any idea, research finding or goal into a structured, executable plan. Covers business strategy, product roadmaps, trading frameworks, content strategies, marketing plans and more.</p>
+          <div class="phase-domains">
+            <span class="domain-tag">business strategy</span>
+            <span class="domain-tag">product roadmap</span>
+            <span class="domain-tag">marketing plan</span>
+            <span class="domain-tag">trading framework</span>
+            <span class="domain-tag">content strategy</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-note">Standalone — plan without having done a formal Research phase first.</div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <span class="phase-num">③ EXECUTE</span>
+        <div class="phase-body">
+          <h2 class="phase-title">Execute</h2>
+          <p class="phase-desc">Deliver on a plan or idea. Build a website, write a report, develop an app, create marketing content, write a blog post, analyse a trade, send a message. Development is one tool under execution — not the only one.</p>
+          <div class="phase-domains">
+            <span class="domain-tag">development</span>
+            <span class="domain-tag">writing</span>
+            <span class="domain-tag">marketing</span>
+            <span class="domain-tag">SEO</span>
+            <span class="domain-tag">content</span>
+            <span class="domain-tag">analysis</span>
+            <span class="domain-tag">trading tools</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-note">Standalone — build or create without a formal Plan phase.</div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <span class="phase-num">④ REVIEW</span>
+        <div class="phase-body">
+          <h2 class="phase-title">Review</h2>
+          <p class="phase-desc">Verify quality and raise standards on anything delivered. Review and test code before go-live, improve a document, critique a strategy, stress-test a thesis, refine copy before publishing.</p>
+          <div class="phase-domains">
+            <span class="domain-tag">code review</span>
+            <span class="domain-tag">document review</span>
+            <span class="domain-tag">strategy critique</span>
+            <span class="domain-tag">copy editing</span>
+            <span class="domain-tag">thesis stress-test</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-note">Standalone — review anything at any point, not just after Execute.</div>
+    </div>
+
+    <div class="phase-card">
+      <div class="phase-header">
+        <span class="phase-num">⑤ COMPOUND</span>
+        <div class="phase-body">
+          <h2 class="phase-title">Compound</h2>
+          <p class="phase-desc">Capture what worked, what didn't, and why. For marketing — what drove results. For trading — what the setup taught you. For research — what the key insight was. Feeds back into every future session automatically.</p>
+          <div class="phase-domains">
+            <span class="domain-tag">learnings</span>
+            <span class="domain-tag">patterns</span>
+            <span class="domain-tag">decisions</span>
+            <span class="domain-tag">improvements</span>
+          </div>
+        </div>
+      </div>
+      <div class="phase-note">The most important phase. The longer you use it, the smarter every other phase becomes.</div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">ClawsterClaw · Capabilities</span>
+    <span class="footer-right"><a href="index.html">← Portal home</a></span>
+  </footer>
+</body>
+</html>

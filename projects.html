@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — ClawsterClaw</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #F7F5F0; --bg2: #EEEAE0; --surface: #FFFFFF; --border: #DDD9CE; --text: #1C1A16; --muted: #6B6760; --accent: #C83010; --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,0.07); }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo { width: 36px; height: 36px; object-fit: contain; }
+    .nav-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13.5px; padding: 6px 12px; border-radius: 8px; transition: all 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); background: var(--bg2); }
+    .nav-github { font-size: 12px !important; border: 1px solid var(--border) !important; }
+    .page-header { max-width: 860px; margin: 0 auto; padding: 56px 40px 40px; }
+    .back-link { font-size: 12px; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-bottom: 20px; }
+    .back-link:hover { text-decoration: underline; }
+    .page-title { font-family: 'Syne', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+    .page-sub { font-size: 14px; color: var(--muted); font-weight: 300; max-width: 520px; }
+    .content { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
+    .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 32px; margin-bottom: 14px; }
+    .project-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+    .project-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; }
+    .project-status { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+    .status-active { background: #EAF7EE; color: #1A7A3A; border: 1px solid #B8E8C4; }
+    .project-desc { font-size: 13.5px; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 20px; }
+    .project-phases { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px; }
+    .phase-pill { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 10px 8px; text-align: center; font-size: 11px; color: var(--muted); font-weight: 500; }
+    .phase-pill span { display: block; font-size: 16px; margin-bottom: 4px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: 11px; color: var(--muted); background: var(--bg); border: 1px solid var(--border); padding: 3px 9px; border-radius: 20px; }
+    .empty-state { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 48px 32px; text-align: center; color: var(--muted); font-size: 13px; }
+    .empty-state p { margin-bottom: 8px; }
+    footer { border-top: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; }
+    .footer-left { font-size: 12px; color: var(--muted); }
+    .footer-right a { font-size: 12px; color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <img src="assets/logo.png" alt="ClawsterClaw" class="nav-logo">
+      <span class="nav-name">ClawsterClaw</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="capabilities.html">Capabilities</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="https://github.com/ClawsterClaw/claude" target="_blank" class="nav-github">GitHub ↗</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <a href="index.html" class="back-link">← Back to portal</a>
+    <h1 class="page-title">Projects</h1>
+    <p class="page-sub">Active projects with their own context, phases and decisions. Each is a self-contained workspace.</p>
+  </div>
+
+  <div class="content">
+
+    <div class="project-card">
+      <div class="project-top">
+        <h2 class="project-title">My Claude Learning Journey</h2>
+        <span class="project-status status-active">Active</span>
+      </div>
+      <p class="project-desc">Mastering Claude and AI across all domains — from understanding the tool stack (Skills, Cowork, Claude Code, Remote Control) to building a personal knowledge system, custom skills, and eventually full AI-powered products and workflows.</p>
+      <div class="project-phases">
+        <div class="phase-pill"><span>🔍</span>Research</div>
+        <div class="phase-pill"><span>📋</span>Plan</div>
+        <div class="phase-pill"><span>⚡</span>Execute</div>
+        <div class="phase-pill"><span>✅</span>Review</div>
+        <div class="phase-pill"><span>📈</span>Compound</div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">claude-code</span>
+        <span class="tag">skills</span>
+        <span class="tag">cowork</span>
+        <span class="tag">remote-control</span>
+        <span class="tag">knowledge-portal</span>
+        <span class="tag">AI-mastery</span>
+      </div>
+    </div>
+
+    <div class="empty-state">
+      <p>More projects will appear here as you build.</p>
+      <p style="font-size:11px; margin-top:4px;">Options Trading Bot · News Sentiment Aggregator · AI Consulting Practice · and more</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-left">ClawsterClaw · Projects</span>
+    <span class="footer-right"><a href="index.html">← Portal home</a></span>
+  </footer>
+</body>
+</html>

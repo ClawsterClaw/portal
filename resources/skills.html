@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills Library — ClawsterClaw</title>
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #F7F5F0; --bg2: #EEEAE0; --surface: #FFFFFF; --border: #DDD9CE; --text: #1C1A16; --muted: #6B6760; --accent: #C83010; --radius: 12px; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo { width: 36px; height: 36px; object-fit: contain; }
+    .nav-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13.5px; padding: 6px 12px; border-radius: 8px; transition: all 0.15s; }
+    .nav-links a:hover { color: var(--text); background: var(--bg2); }
+    .nav-github { font-size: 12px !important; border: 1px solid var(--border) !important; }
+    .page-header { max-width: 860px; margin: 0 auto; padding: 56px 40px 40px; }
+    .back-link { font-size: 12px; color: var(--accent); text-decoration: none; margin-bottom: 20px; display: inline-block; }
+    .back-link:hover { text-decoration: underline; }
+    .page-title { font-family: 'Syne', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+    .page-sub { font-size: 14px; color: var(--muted); font-weight: 300; }
+    .content { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
+    .empty-state { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--radius); padding: 64px 32px; text-align: center; }
+    .empty-title { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 10px; }
+    .empty-desc { font-size: 13px; color: var(--muted); font-weight: 300; max-width: 400px; margin: 0 auto; line-height: 1.6; }
+    .empty-hint { margin-top: 20px; font-size: 12px; color: var(--accent); font-family: monospace; background: #FBF0ED; padding: 8px 16px; border-radius: 8px; display: inline-block; }
+    footer { border-top: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; }
+    .footer-left { font-size: 12px; color: var(--muted); }
+    .footer-right a { font-size: 12px; color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-brand">
+      <img src="../assets/logo.png" alt="ClawsterClaw" class="nav-logo">
+      <span class="nav-name">ClawsterClaw</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../capabilities.html">Capabilities</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../resources.html">Resources</a></li>
+      <li><a href="https://github.com/ClawsterClaw/claude" target="_blank" class="nav-github">GitHub ↗</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <a href="../resources.html" class="back-link">← Back to resources</a>
+    <h1 class="page-title">Skills Library</h1>
+    <p class="page-sub">Custom skills for Claude Code. Each skill encodes a workflow so Claude applies it automatically.</p>
+  </div>
+
+  <div class="content">
+    <div class="empty-state">
+      <h2 class="empty-title">No skills yet</h2>
+      <p class="empty-desc">Skills will appear here as you build them. Start with the skill-creator plugin already installed on your Mac Mini.</p>
+      <div class="empty-hint">/skill-creator</div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-left">ClawsterClaw · Skills Library</span>
+    <span class="footer-right"><a href="../index.html">← Portal home</a></span>
+  </footer>
+</body>
+</html>

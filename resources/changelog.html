@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Changelog — ClawsterClaw</title>
+  <link rel="icon" type="image/png" href="../assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg: #F7F5F0; --bg2: #EEEAE0; --surface: #FFFFFF; --border: #DDD9CE; --text: #1C1A16; --muted: #6B6760; --accent: #C83010; --radius: 12px; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); font-size: 15px; line-height: 1.6; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo { width: 36px; height: 36px; object-fit: contain; }
+    .nav-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 6px; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 13.5px; padding: 6px 12px; border-radius: 8px; transition: all 0.15s; }
+    .nav-links a:hover { color: var(--text); background: var(--bg2); }
+    .nav-github { font-size: 12px !important; border: 1px solid var(--border) !important; }
+    .page-header { max-width: 860px; margin: 0 auto; padding: 56px 40px 40px; }
+    .back-link { font-size: 12px; color: var(--accent); text-decoration: none; margin-bottom: 20px; display: inline-block; }
+    .back-link:hover { text-decoration: underline; }
+    .page-title { font-family: 'Syne', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: -1px; margin-bottom: 10px; }
+    .page-sub { font-size: 14px; color: var(--muted); font-weight: 300; }
+    .content { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
+    .changelog-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .changelog-header { padding: 16px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .changelog-title { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; }
+    .changelog-sub { font-size: 11px; color: var(--muted); }
+    .view-all { font-size: 12px; color: var(--accent); text-decoration: none; }
+    .view-all:hover { text-decoration: underline; }
+    .commit-list { padding: 0; }
+    .commit-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px 24px; border-bottom: 1px solid var(--border); transition: background 0.12s; }
+    .commit-item:last-child { border-bottom: none; }
+    .commit-item:hover { background: var(--bg); }
+    .commit-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 7px; flex-shrink: 0; }
+    .commit-body { flex: 1; }
+    .commit-msg { font-size: 13.5px; color: var(--text); }
+    .commit-meta { font-size: 11px; color: var(--muted); margin-top: 3px; }
+    .commit-date { font-size: 11px; color: var(--muted); white-space: nowrap; margin-top: 2px; }
+    .loading { padding: 32px 24px; font-size: 13px; color: var(--muted); text-align: center; }
+    footer { border-top: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; max-width: 860px; margin: 0 auto; }
+    .footer-left { font-size: 12px; color: var(--muted); }
+    .footer-right a { font-size: 12px; color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-brand">
+      <img src="../assets/logo.png" alt="ClawsterClaw" class="nav-logo">
+      <span class="nav-name">ClawsterClaw</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../capabilities.html">Capabilities</a></li>
+      <li><a href="../projects.html">Projects</a></li>
+      <li><a href="../resources.html">Resources</a></li>
+      <li><a href="https://github.com/ClawsterClaw/claude" target="_blank" class="nav-github">GitHub ↗</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <a href="../resources.html" class="back-link">← Back to resources</a>
+    <h1 class="page-title">Changelog</h1>
+    <p class="page-sub">Every change, always current. Auto-generated from git history on every push. Never written manually.</p>
+  </div>
+
+  <div class="content">
+    <div class="changelog-box">
+      <div class="changelog-header">
+        <div>
+          <div class="changelog-title">Commit history</div>
+          <div class="changelog-sub">Auto-fetched from GitHub on page load</div>
+        </div>
+        <a href="https://github.com/ClawsterClaw/claude/commits/main" target="_blank" class="view-all">View all on GitHub ↗</a>
+      </div>
+      <div class="commit-list" id="commit-list">
+        <div class="loading">Loading changelog...</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-left">ClawsterClaw · Changelog · Auto-generated from git history</span>
+    <span class="footer-right"><a href="../index.html">← Portal home</a></span>
+  </footer>
+
+  <script>
+    async function loadCommits() {
+      try {
+        const res = await fetch('https://api.github.com/repos/ClawsterClaw/claude/commits?per_page=30');
+        if (!res.ok) throw new Error('Failed');
+        const commits = await res.json();
+        const list = document.getElementById('commit-list');
+        list.innerHTML = commits.map(c => {
+          const date = new Date(c.commit.author.date);
+          const formatted = date.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+          const ago = timeAgo(date);
+          const msg = c.commit.message.split('\n')[0];
+          const sha = c.sha.substring(0, 7);
+          return `<div class="commit-item">
+            <div class="commit-dot"></div>
+            <div class="commit-body">
+              <div class="commit-msg">${msg}</div>
+              <div class="commit-meta">${formatted} · <a href="${c.html_url}" target="_blank" style="color:var(--accent);text-decoration:none;">${sha}</a></div>
+            </div>
+            <span class="commit-date">${ago}</span>
+          </div>`;
+        }).join('');
+      } catch(e) {
+        document.getElementById('commit-list').innerHTML =
+          '<div class="loading">No commits yet — start pushing to see your changelog here.</div>';
+      }
+    }
+
+    function timeAgo(date) {
+      const diff = Math.floor((Date.now() - date) / 1000);
+      if (diff < 60) return 'just now';
+      if (diff < 3600) return Math.floor(diff/60) + 'm ago';
+      if (diff < 86400) return Math.floor(diff/3600) + 'h ago';
+      if (diff < 604800) return Math.floor(diff/86400) + 'd ago';
+      return Math.floor(diff/604800) + 'w ago';
+    }
+
+    loadCommits();
+  </script>
+</body>
+</html>
