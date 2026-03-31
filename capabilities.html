@@ -30,7 +30,7 @@
     .content { max-width: 860px; margin: 0 auto; padding: 0 40px 80px; }
     .phase-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 14px; overflow: hidden; }
     .phase-header { padding: 24px 28px; display: flex; align-items: flex-start; gap: 20px; }
-    .phase-num { font-family: 'Syne', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--accent); background: #FBF0ED; border: 1px solid #F0C4BA; padding: 4px 10px; border-radius: 20px; white-space: nowrap; margin-top: 2px; }
+    .phase-descriptor { font-size: 10.5px; font-weight: 600; letter-spacing: 0.9px; text-transform: uppercase; display: block; margin-bottom: 5px; }
     .phase-body { flex: 1; }
     .phase-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 8px; }
     .phase-desc { font-size: 13.5px; color: var(--muted); font-weight: 300; line-height: 1.65; margin-bottom: 14px; }
@@ -64,93 +64,90 @@
 
   <div class="content">
 
-    <div class="phase-card">
+    <div class="phase-card" style="border-left: 4px solid #0D7377; background: rgba(13,115,119,0.04);">
       <div class="phase-header">
-        <span class="phase-num">① RESEARCH</span>
         <div class="phase-body">
-          <h2 class="phase-title">Research</h2>
+          <span class="phase-descriptor" style="color: #0D7377;">Surface what matters</span>
+          <h2 class="phase-title">Discover</h2>
           <p class="phase-desc">Deep exploration of any topic. Structure findings into context, key signals, implications and open questions. Works across all domains — markets, AI, science, disruptive innovation, human evolution, geopolitics and beyond.</p>
           <div class="phase-domains">
-            <span class="domain-tag">stocks</span>
-            <span class="domain-tag">AI</span>
-            <span class="domain-tag">crypto</span>
-            <span class="domain-tag">science</span>
-            <span class="domain-tag">disruptive innovation</span>
-            <span class="domain-tag">human evolution with AI</span>
-            <span class="domain-tag">futures</span>
+            <span class="domain-tag">brainstorm</span>
+            <span class="domain-tag">ideation</span>
+            <span class="domain-tag">agent research</span>
+            <span class="domain-tag">comparisons</span>
+            <span class="domain-tag">exploration</span>
           </div>
         </div>
       </div>
       <div class="phase-note">Standalone — start here without committing to any next step.</div>
     </div>
 
-    <div class="phase-card">
+    <div class="phase-card" style="border-left: 4px solid #D4820A; background: rgba(212,130,10,0.04);">
       <div class="phase-header">
-        <span class="phase-num">② PLAN</span>
         <div class="phase-body">
+          <span class="phase-descriptor" style="color: #D4820A;">Structure the thinking</span>
           <h2 class="phase-title">Plan</h2>
           <p class="phase-desc">Turn any idea, research finding or goal into a structured, executable plan. Covers business strategy, product roadmaps, trading frameworks, content strategies, marketing plans and more.</p>
           <div class="phase-domains">
-            <span class="domain-tag">business strategy</span>
-            <span class="domain-tag">product roadmap</span>
-            <span class="domain-tag">marketing plan</span>
-            <span class="domain-tag">trading framework</span>
-            <span class="domain-tag">content strategy</span>
+            <span class="domain-tag">strategy</span>
+            <span class="domain-tag">frameworks</span>
+            <span class="domain-tag">roadmaps</span>
+            <span class="domain-tag">documentation</span>
+            <span class="domain-tag">structured thinking</span>
           </div>
         </div>
       </div>
-      <div class="phase-note">Standalone — plan without having done a formal Research phase first.</div>
+      <div class="phase-note">Standalone — plan without having done a formal Discover phase first.</div>
     </div>
 
-    <div class="phase-card">
+    <div class="phase-card" style="border-left: 4px solid #C83010; background: rgba(200,48,16,0.04);">
       <div class="phase-header">
-        <span class="phase-num">③ EXECUTE</span>
         <div class="phase-body">
+          <span class="phase-descriptor" style="color: #C83010;">Deliver the work</span>
           <h2 class="phase-title">Execute</h2>
           <p class="phase-desc">Deliver on a plan or idea. Build a website, write a report, develop an app, create marketing content, write a blog post, analyse a trade, send a message. Development is one tool under execution — not the only one.</p>
           <div class="phase-domains">
-            <span class="domain-tag">development</span>
-            <span class="domain-tag">writing</span>
-            <span class="domain-tag">marketing</span>
-            <span class="domain-tag">SEO</span>
-            <span class="domain-tag">content</span>
-            <span class="domain-tag">analysis</span>
-            <span class="domain-tag">trading tools</span>
+            <span class="domain-tag">build</span>
+            <span class="domain-tag">write</span>
+            <span class="domain-tag">create</span>
+            <span class="domain-tag">develop</span>
+            <span class="domain-tag">analyse</span>
+            <span class="domain-tag">deliver</span>
           </div>
         </div>
       </div>
       <div class="phase-note">Standalone — build or create without a formal Plan phase.</div>
     </div>
 
-    <div class="phase-card">
+    <div class="phase-card" style="border-left: 4px solid #2E5FA3; background: rgba(46,95,163,0.04);">
       <div class="phase-header">
-        <span class="phase-num">④ REVIEW</span>
         <div class="phase-body">
+          <span class="phase-descriptor" style="color: #2E5FA3;">Raise the standard</span>
           <h2 class="phase-title">Review</h2>
           <p class="phase-desc">Verify quality and raise standards on anything delivered. Review and test code before go-live, improve a document, critique a strategy, stress-test a thesis, refine copy before publishing.</p>
           <div class="phase-domains">
-            <span class="domain-tag">code review</span>
-            <span class="domain-tag">document review</span>
-            <span class="domain-tag">strategy critique</span>
-            <span class="domain-tag">copy editing</span>
-            <span class="domain-tag">thesis stress-test</span>
+            <span class="domain-tag">critique</span>
+            <span class="domain-tag">improve</span>
+            <span class="domain-tag">test</span>
+            <span class="domain-tag">stress-test</span>
+            <span class="domain-tag">refine</span>
           </div>
         </div>
       </div>
       <div class="phase-note">Standalone — review anything at any point, not just after Execute.</div>
     </div>
 
-    <div class="phase-card">
+    <div class="phase-card" style="border-left: 4px solid #2D6A4F; background: rgba(45,106,79,0.04);">
       <div class="phase-header">
-        <span class="phase-num">⑤ COMPOUND</span>
         <div class="phase-body">
+          <span class="phase-descriptor" style="color: #2D6A4F;">Lock in the learning</span>
           <h2 class="phase-title">Compound</h2>
           <p class="phase-desc">Capture what worked, what didn't, and why. For marketing — what drove results. For trading — what the setup taught you. For research — what the key insight was. Feeds back into every future session automatically.</p>
           <div class="phase-domains">
-            <span class="domain-tag">learnings</span>
+            <span class="domain-tag">capture learnings</span>
             <span class="domain-tag">patterns</span>
             <span class="domain-tag">decisions</span>
-            <span class="domain-tag">improvements</span>
+            <span class="domain-tag">improve</span>
           </div>
         </div>
       </div>
